@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "movie-database"
+  "defaultProject": "movie-database",
+  "cli": {
+    "analytics": false
+  }
 }
