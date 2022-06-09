@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prettier:check": "prettier --config .prettierrc --check \"src/**/*.{ts,css,html}\"",
-    "heroku-postbuild": "ng build --prod",
+    "heroku-postbuild": "ng build",
     "prepare": "husky install"
   },
   "engines": {
