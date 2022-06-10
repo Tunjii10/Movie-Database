@@ -14,9 +14,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, NavBarComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
