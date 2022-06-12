@@ -10,11 +10,10 @@ import { FormsModule } from '@angular/forms';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavBarComponent } from './component/nav-bar/nav-bar.component';
+import { NavBarComponent } from './compnent/nav-bar/nav-bar.component';
 
 @NgModule({
     declarations: [AppComponent, NavBarComponent],
@@ -22,7 +21,6 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        MatFormFieldModule,
         MatIconModule,
         MatTabsModule,
         MatSliderModule,
