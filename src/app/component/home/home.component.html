@@ -1,0 +1,32 @@
+<!-- landing text and search input -->
+<div class="md:h-2/5">
+    <div
+        class="bg-no-repeat bg-cover bg-center bg-[url('https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')]"
+    >
+        <div class="flex flex-col p-8 md:p-12">
+            <h1 class="text-white">Welcome.</h1>
+            <h2 class="text-white">Millions of movies and TV shows to discover.</h2>
+            <!-- search form -->
+            <form class="my-5" #form="ngForm" (ngSubmit)="submit(form)">
+                <div class="relative">
+                    <input
+                        type="text"
+                        id="search-home"
+                        name="search"
+                        [(ngModel)]="model.searchStr"
+                        #search="ngModel"
+                        class="form-control block p-2 w-full rounded-lg border border-purple-300 sm:text-sm focus:outline-none focus:ring-3 focus:ring-purple-700 focus:border-purple-700"
+                        placeholder="Search..."
+                    />
+                    <button
+                        type="submit"
+                        [disabled]="!form.form.valid"
+                        class="absolute right-1.5 bottom-1.5 top-1.5 bg-purple-300 hover:bg-purple-400 rounded hover:text-gray-700 focus:outline-none active:bg-purple-500 px-4 pb-0.5"
+                    >
+                        Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
