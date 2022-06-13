@@ -1,10 +1,10 @@
-<nav class="bg-purple-200 px-2 sm:px-4 py-2.5 rounded">
+<nav class="bg-purple-200 px-2 sm:px-4 py-2.5">
     <!-- flex container for nav -->
     <div class="container flex flex-wrap justify-between items-center mx-auto">
         <!-- title -->
-        <div routerLink="/" class="flex items-center">
-            <span class="self-center text-xl font-semibold whitespace-nowrap">Movie-Database</span>
-        </div>
+        <a [routerLink]="['/']" class="flex items-center">
+            <span class="self-center text-xl font-semibold whitespace-nowrap text-black">Movie-Database</span>
+        </a>
 
         <!-- flex container for icons and search -->
         <div class="flex md:order-2">
@@ -14,7 +14,7 @@
                 data-collapse-toggle="mobile-menu-3"
                 aria-controls="mobile-menu-3"
                 aria-expanded="false"
-                class="md:hidden text-gray-500 hover:bg-purple-300 focus:outline-none focus:ring-1 focus:ring-purple-100 rounded-lg text-sm p-2.5 mr-1"
+                class="md:hidden hover:bg-purple-300 focus:outline-none active:bg-purple-500 rounded-lg text-sm p-2.5 mr-1"
                 (click)="Toggle()"
             >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -51,8 +51,9 @@
                         name="search"
                         [(ngModel)]="model.searchStr"
                         #search="ngModel"
-                        class="form-control block p-2 pl-10 w-full text-gray-500 bg-grey-50 rounded-lg border border-purple-300 sm:text-sm focus:outline-none focus:ring-purple-700 focus:border-purple-700"
+                        class="form-control block p-2 pl-10 w-full bg-grey-50 rounded-lg border border-purple-300 sm:text-sm focus:outline-none focus:ring-purple-700 focus:border-purple-700"
                         placeholder="Search..."
+                        required
                     />
                 </form>
             </div>
@@ -60,7 +61,7 @@
             <button
                 data-collapse-toggle="mobile-menu-3"
                 type="button"
-                class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-purple-300 focus:outline-none focus:ring-1 focus:ring-purple-100"
+                class="inline-flex items-center p-2 text-sm rounded-lg md:hidden hover:bg-purple-300 active:bg-purple-500 focus:outline-none"
                 aria-controls="mobile-menu-3"
                 aria-expanded="false"
                 (click)="Toggle()"
@@ -108,23 +109,18 @@
                         name="search"
                         [(ngModel)]="model.searchStr"
                         #search="ngModel"
-                        class="form-control block p-2 pl-10 w-full text-gray-500 bg-grey-50 rounded-lg border border-purple-300 sm:text-sm focus:outline-none focus:ring-purple-700 focus:border-purple-700"
+                        class="form-control block p-2 pl-10 w-full bg-grey-50 rounded-lg border border-purple-300 sm:text-sm focus:outline-none focus:ring-purple-700 focus:border-purple-700"
                         placeholder="Search..."
+                        required
                     />
                 </form>
-                <!-- <input
-                    type="text"
-                    id="search-navbar"
-                    class="block p-2 pl-10 w-full text-gray-500 bg-gray-50 rounded-lg border border-purple-300 sm:text-sm focus:outline-none focus:ring-purple-700 focus:border-purple-700 dark:bg-gray-700"
-                    placeholder="Search..."
-                /> -->
             </div>
             <!-- links and text -->
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
                 <li>
                     <a
                         href="#"
-                        class="block py-2 pr-4 pl-3 text-gray-500 border border-purple-100 hover:bg-purple-300 rounded md:hover:bg-transparent md:text-md md:border-0 md:hover:text-gray-700 md:p-0"
+                        class="block py-2 pr-4 pl-3 border border-purple-100 hover:bg-purple-300 rounded md:hover:bg-transparent md:text-md md:border-0 md:hover:text-gray-700 md:p-0"
                         aria-current="page"
                         >Movies</a
                     >
@@ -132,7 +128,7 @@
                 <li>
                     <a
                         href="#"
-                        class="block py-2 pr-4 pl-3 text-gray-500 border border-purple-100 hover:bg-purple-300 rounded md:hover:bg-transparent md:text-md md:border-0 md:hover:text-gray-700 md:p-0"
+                        class="block py-2 pr-4 pl-3 border border-purple-100 hover:bg-purple-300 rounded md:hover:bg-transparent md:text-md md:border-0 md:hover:text-gray-700 md:p-0"
                         >Series</a
                     >
                 </li>

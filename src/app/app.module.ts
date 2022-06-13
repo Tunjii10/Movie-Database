@@ -13,10 +13,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavBarComponent } from './compnent/nav-bar/nav-bar.component';
+import { NavBarComponent } from './component/nav-bar/nav-bar.component';
+import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
-    declarations: [AppComponent, NavBarComponent],
+    declarations: [AppComponent, NavBarComponent, HomeComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
