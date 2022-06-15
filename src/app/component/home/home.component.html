@@ -1,8 +1,10 @@
 <!-- landing text and search input -->
-<div class="md:h-2/5">
+<div>
+    <!-- background container and image -->
     <div
-        class="bg-no-repeat bg-cover bg-center bg-[url('https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')]"
+        class="md:h-2/5 bg-no-repeat bg-cover bg-center bg-[url('https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')]"
     >
+        <!-- background text -->
         <div class="flex flex-col p-8 md:p-12">
             <h1 class="text-white">Welcome.</h1>
             <h2 class="text-white">Millions of movies and TV shows to discover.</h2>
@@ -27,6 +29,54 @@
                     </button>
                 </div>
             </form>
+        </div>
+    </div>
+    <!-- tabs-container -->
+    <div class="px-1 home-tabs">
+        <div class="px-2 mt-3">
+            <!-- tab-1 -->
+            <div class="flex flex-row gap-1">
+                <!-- header and icon 1-->
+                <p class="text-black text-base tab-header">Trending</p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 place-self-center">
+                    <path fill="none" d="M0 0h24v24H0V0z"></path>
+                    <path
+                        d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"
+                        fill="#c084fc"
+                        class="color000000 svgShape"
+                    ></path>
+                </svg>
+            </div>
+            <!-- label and content 1-->
+            <mat-tab-group animationDuration="2000ms" mat-align-tabs="center">
+                <mat-tab label="Movies">Content 1</mat-tab>
+                <mat-tab label="Series">Content 2</mat-tab>
+            </mat-tab-group>
+        </div>
+        <div class="px-2 mt-3">
+            <!-- tab-2 -->
+            <div class="flex flex-row">
+                <!-- header and icon 2-->
+                <p class="text-black text-base tab-header">Top Rated</p>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-name="Layer 1"
+                    viewBox="0 0 32 32"
+                    class="w-6 h-3 place-self-center"
+                >
+                    <defs></defs>
+                    <path
+                        fill="#c084fc"
+                        d="M13 2a2 2 0 00-2 2V28a2 2 0 004 0V4A2 2 0 0013 2zM5 14a2 2 0 00-2 2V28a2 2 0 004 0V16A2 2 0 005 14zM21 8a2 2 0 00-2 2V28a2 2 0 004 0V10A2 2 0 0021 8zM29 21a2 2 0 00-2 2v5a2 2 0 004 0V23A2 2 0 0029 21z"
+                        class="colorba63c6 svgShape"
+                    ></path>
+                </svg>
+            </div>
+            <!-- label and content 2-->
+            <mat-tab-group animationDuration="2000ms" mat-align-tabs="center">
+                <mat-tab label="Movies">Content 1</mat-tab>
+                <mat-tab label="Series">Content 2</mat-tab>
+            </mat-tab-group>
         </div>
     </div>
 </div>
