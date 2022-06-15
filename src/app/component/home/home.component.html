@@ -2,7 +2,15 @@
 <div>
     <!-- background container and image -->
     <div
-        class="md:h-2/5 bg-no-repeat bg-cover bg-center bg-[url('https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')]"
+        class="md:h-2/5"
+        style="
+            background-image: url(https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: auto;
+            width: 100%;
+        "
     >
         <!-- background text -->
         <div class="flex flex-col p-8 md:p-12">
@@ -49,8 +57,58 @@
             </div>
             <!-- label and content 1-->
             <mat-tab-group animationDuration="2000ms" mat-align-tabs="center">
-                <mat-tab label="Movies">Content 1</mat-tab>
-                <mat-tab label="Series">Content 2</mat-tab>
+                <mat-tab label="Movies">
+                    <!-- grid -->
+                    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 p-2">
+                        <!-- grid content -->
+                        <div
+                            class="rounded-md w-40 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                        >
+                            <!-- grid content image -->
+                            <div class="">
+                                <img
+                                    src="https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    alt=""
+                                    class="h-auto w-40 rounded-t-md"
+                                />
+                            </div>
+                            <!-- grid content text -->
+                            <div class="flex flex-col py-1">
+                                <div class="text-xs p-0 m-0 place-self-center">Movie Title</div>
+                                <div class="text-xs p-0 m-0 place-self-center">20th October 2022</div>
+                            </div>
+                        </div>
+                        <div>content</div>
+                        <div>content</div>
+                        <div>content</div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Series">
+                    <!-- grid -->
+                    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 p-2">
+                        <!-- grid content -->
+                        <div
+                            class="rounded-md w-40 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                        >
+                            <!-- grid content image -->
+                            <div class="">
+                                <img
+                                    src="https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    alt=""
+                                    class="h-auto w-40 rounded-t-md"
+                                />
+                            </div>
+                            <!-- grid content text -->
+                            <div class="flex flex-col py-1">
+                                <div class="text-xs p-0 m-0 place-self-center">Movie Title</div>
+                                <div class="text-xs p-0 m-0 place-self-center">20th October 2022</div>
+                            </div>
+                        </div>
+                        <div>content</div>
+                        <div>content</div>
+                        <div>content</div>
+                    </div>
+                </mat-tab>
             </mat-tab-group>
         </div>
         <div class="px-2 mt-3">
@@ -74,8 +132,58 @@
             </div>
             <!-- label and content 2-->
             <mat-tab-group animationDuration="2000ms" mat-align-tabs="center">
-                <mat-tab label="Movies">Content 1</mat-tab>
-                <mat-tab label="Series">Content 2</mat-tab>
+                <mat-tab label="Movies">
+                    <!-- grid -->
+                    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 p-2">
+                        <!-- grid content -->
+                        <div
+                            class="rounded-md w-40 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                        >
+                            <!-- grid content image -->
+                            <div class="">
+                                <img
+                                    src="https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    alt=""
+                                    class="h-auto w-40 rounded-t-md"
+                                />
+                            </div>
+                            <!-- grid content text -->
+                            <div class="flex flex-col py-1">
+                                <div class="text-xs p-0 m-0 place-self-center">Movie Title</div>
+                                <div class="text-xs p-0 m-0 place-self-center">20th October 2022</div>
+                            </div>
+                        </div>
+                        <div>content</div>
+                        <div>content</div>
+                        <div>content</div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Series">
+                    <!-- grid -->
+                    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 p-2">
+                        <!-- grid content -->
+                        <div
+                            class="rounded-md w-40 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                        >
+                            <!-- grid content image -->
+                            <div class="">
+                                <img
+                                    src="https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    alt=""
+                                    class="h-auto w-40 rounded-t-md"
+                                />
+                            </div>
+                            <!-- grid content text -->
+                            <div class="flex flex-col py-1">
+                                <div class="text-xs p-0 m-0 place-self-center">Movie Title</div>
+                                <div class="text-xs p-0 m-0 place-self-center">20th October 2022</div>
+                            </div>
+                        </div>
+                        <div>content</div>
+                        <div>content</div>
+                        <div>content</div>
+                    </div>
+                </mat-tab>
             </mat-tab-group>
         </div>
     </div>
