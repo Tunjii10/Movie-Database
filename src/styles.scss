@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html,
 body {
     height: 100%;
@@ -10,12 +11,40 @@ body {
     margin: 0;
     padding: 0;
     font-family: Roboto, 'Helvetica Neue', sans-serif;
-    color: #6b7280;
+    color: black;
 }
 
 body * {
     font-family: Roboto, 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
-    color: #6b7280;
+    color: black;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #d8b4fe;
+    border-radius: 5px;
+    width: 6px;
+}
+
+.home-tabs {
+    .tab-header {
+        margin: 0;
+        padding: 0;
+    }
+    .mat-ripple.mat-tab-label.mat-focus-indicator.ng-star-inserted {
+        padding: 0;
+        height: 34px;
+    }
+    .mat-tab-group.mat-primary .mat-ink-bar,
+    .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+        background-color: #c084fc;
+    }
+    .mat-tab-body {
+        margin: 0.5rem;
+    }
 }
