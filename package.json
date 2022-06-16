@@ -3,11 +3,13 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
+        "config": "ts-node ./setenv.ts",
         "start": "node server.js",
-        "build": "ng build",
+        "local": "npm run config -- --environment=dev && ng serve",
+        "build": "npm run config -- --environment=prod && ng build",
         "watch": "ng build --watch --configuration development",
-        "test": "ng test",
-        "heroku-postbuild": "ng build",
+        "test": "ng npm run config -- --environment=prod && test",
+        "heroku-postbuild": "npm run config -- --environment=prod && ng build",
         "prepare": "husky install",
         "format": "pretty-quick --staged"
     },
@@ -35,11 +37,13 @@
         "@angular/platform-browser": "~13.3.0",
         "@angular/platform-browser-dynamic": "~13.3.0",
         "@angular/router": "~13.3.0",
+        "dotenv": "^16.0.1",
         "express": "^4.18.1",
         "path": "^0.12.7",
         "rxjs": "~7.5.0",
         "tslib": "^2.3.0",
         "typescript": "~4.6.2",
+        "yargs": "^17.5.1",
         "zone.js": "~0.11.4"
     },
     "devDependencies": {

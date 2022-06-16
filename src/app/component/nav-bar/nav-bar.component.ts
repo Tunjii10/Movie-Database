@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NavSearchInterface } from './nav-search-interface';
-
 @Component({
     selector: 'app-nav-bar',
     templateUrl: './nav-bar.component.html',

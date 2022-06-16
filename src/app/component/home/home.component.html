@@ -2,14 +2,11 @@
 <div>
     <!-- background container and image -->
     <div
-        class="md:h-2/5"
+        class=""
         style="
-            background-image: url(https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+            background-image: url(../../../assets/pexels-jv-buenconcejo-2719301-largest.jpg);
             background-repeat: no-repeat;
             background-size: cover;
-            background-position: center;
-            height: auto;
-            width: 100%;
         "
     >
         <!-- background text -->
@@ -25,7 +22,7 @@
                         name="search"
                         [(ngModel)]="model.searchStr"
                         #search="ngModel"
-                        class="form-control block p-2 w-full rounded-lg border border-purple-300 sm:text-sm focus:outline-none focus:ring-3 focus:ring-purple-700 focus:border-purple-700"
+                        class="form-control block p-2 w-full rounded-lg border border-purple-300 sm:text-sm focus:outline-none focus:ring-1 focus:ring-purple-400 focus:border-purple-700"
                         placeholder="Search..."
                     />
                     <button
@@ -41,7 +38,7 @@
     </div>
     <!-- tabs-container -->
     <div class="px-1 home-tabs">
-        <div class="px-2 mt-3">
+        <div class="px-2 mt-4">
             <!-- tab-1 -->
             <div class="flex flex-row gap-1">
                 <!-- header and icon 1-->
