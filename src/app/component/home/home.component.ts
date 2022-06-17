@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.movieList('popular');
+        this.movieList('top_rated');
+        this.seriesList('popular');
+        this.seriesList('top_rated');
     }
 
     model = new HomeSearchInterface(' ');
@@ -27,6 +30,11 @@ export class HomeComponent implements OnInit {
     movieList(path: string): void {
         this.httpService.getMovieList(path).subscribe((movieList: ApiResponse<Movie>) => {
             console.log(movieList);
+        });
+    }
+    seriesList(path: string): void {
+        this.httpService.getSeriesList(path).subscribe((seriesList: ApiResponse<Movie>) => {
+            console.log(seriesList);
         });
     }
 }
