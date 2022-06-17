@@ -8,7 +8,7 @@ const routes: Routes = [
         component: HomeComponent,
     },
     {
-        path: 'search:movie-search',
+        path: 'search/:movie-search',
         component: HomeComponent,
     },
 ];
