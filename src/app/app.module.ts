@@ -9,13 +9,22 @@ import { HttpErrorsInterceptor } from './interceptors/http-error-interceptor';
 import { FormsModule } from '@angular/forms';
 
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
     declarations: [AppComponent, NavBarComponent, HomeComponent],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule, MatTabsModule, FormsModule, BrowserAnimationsModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatTabsModule,
+        MatTooltipModule,
+        FormsModule,
+        BrowserAnimationsModule,
+    ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

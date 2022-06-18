@@ -27,7 +27,7 @@ export class HttpService {
             .set('query', searchString)
             .set('language', 'en-US')
             .set('page', 1);
-        return this.http.get<ApiResponse<Series>>(`${env.API_URL}/search/movie`, {
+        return this.http.get<ApiResponse<Movie>>(`${env.API_URL}/search/movie`, {
             params: params,
         });
     }
