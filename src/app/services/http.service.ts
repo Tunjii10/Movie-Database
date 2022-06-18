@@ -41,16 +41,16 @@ export class HttpService {
             params: params,
         });
     }
-    getMovieDetail(id: number): Observable<MovieDetail> {
+    getDetail(videoType: string, id: number): Observable<MovieDetail | SeriesDetail> {
         let params = new HttpParams().set('api_key', `${env.API_KEY}`).set('language', 'en-US');
-        return this.http.get<MovieDetail>(`${env.API_URL}/movie/${id}`, {
-            params: params,
-        });
-    }
-    getSeriesDetail(id: number): Observable<SeriesDetail> {
-        let params = new HttpParams().set('api_key', `${env.API_KEY}`).set('language', 'en-US');
-        return this.http.get<SeriesDetail>(`${env.API_URL}/tv/${id}`, {
-            params: params,
-        });
+        if (videoType === 'movie') {
+            return this.http.get<MovieDetail>(`${env.API_URL}/movie/${id}`, {
+                params: params,
+            });
+        } else {
+            return this.http.get<SeriesDetail>(`${env.API_URL}/tv/${id}`, {
+                params: params,
+            });
+        }
     }
 }

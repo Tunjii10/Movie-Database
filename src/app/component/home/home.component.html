@@ -66,6 +66,7 @@
                         <ng-container *ngFor="let movie of PopularMovie">
                             <div
                                 class="rounded-md w-36 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                                (click)="openDetails('movie', movie.id)"
                             >
                                 <!-- flex content image -->
                                 <div class="">
@@ -77,7 +78,7 @@
                                     />
                                     <div
                                         *ngIf="!movie.poster_path"
-                                        class="bg-gradient-to-r from-purple-300 flex justify-center p-5"
+                                        class="bg-gradient-to-r from-purple-300 flex justify-center py-24"
                                     >
                                         <p>No image</p>
                                     </div>
@@ -112,6 +113,7 @@
                         <ng-container *ngFor="let series of PopularSeries">
                             <div
                                 class="rounded-md w-36 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                                (click)="openDetails('series', series.id)"
                             >
                                 <!-- flex content image -->
                                 <div class="">
@@ -123,7 +125,7 @@
                                     />
                                     <div
                                         *ngIf="!series.poster_path"
-                                        class="bg-gradient-to-r from-purple-300 flex justify-center p-5"
+                                        class="bg-gradient-to-r from-purple-300 flex justify-center py-24"
                                     >
                                         <p>No image</p>
                                     </div>
@@ -183,6 +185,7 @@
                         <ng-container *ngFor="let movie of RatedMovie">
                             <div
                                 class="rounded-md w-36 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                                (click)="openDetails('movie', movie.id)"
                             >
                                 <!-- grid content image -->
                                 <div class="">
@@ -194,7 +197,7 @@
                                     />
                                     <div
                                         *ngIf="!movie.poster_path"
-                                        class="bg-gradient-to-r from-purple-300 flex justify-center p-5"
+                                        class="bg-gradient-to-r from-purple-300 flex justify-center py-24"
                                     >
                                         <p>No image</p>
                                     </div>
@@ -229,6 +232,7 @@
                         <ng-container *ngFor="let series of RatedSeries">
                             <div
                                 class="rounded-md w-36 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                                (click)="openDetails('series', series.id)"
                             >
                                 <!-- flex content image -->
                                 <div class="">
@@ -240,9 +244,9 @@
                                     />
                                     <div
                                         *ngIf="!series.poster_path"
-                                        class="bg-gradient-to-r from-purple-300 flex justify-center p-5"
+                                        class="bg-gradient-to-r from-purple-300 flex justify-center py-24"
                                     >
-                                        <p>No image</p>
+                                        <p class="">No image</p>
                                     </div>
                                 </div>
                                 <!-- flex content text -->

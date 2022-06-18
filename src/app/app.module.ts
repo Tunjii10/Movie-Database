@@ -13,9 +13,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { HomeComponent } from './component/home/home.component';
+import { DetailsComponent } from './component/details/details.component';
 
 @NgModule({
-    declarations: [AppComponent, NavBarComponent, HomeComponent],
+    declarations: [AppComponent, NavBarComponent, HomeComponent, DetailsComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
