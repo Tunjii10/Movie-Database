@@ -36,6 +36,9 @@
             </form>
         </div>
     </div>
+
+    <!-- This is the first mat tab -->
+
     <!-- tabs-container -->
     <div class="px-1 home-tabs">
         <div class="px-2 mt-4">
@@ -55,59 +58,101 @@
             <!-- label and content 1-->
             <mat-tab-group animationDuration="2000ms" mat-align-tabs="center">
                 <mat-tab label="Movies">
-                    <!-- grid -->
-                    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 p-2">
-                        <!-- grid content -->
-                        <div
-                            class="rounded-md w-40 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
-                        >
-                            <!-- grid content image -->
-                            <div class="">
-                                <img
-                                    src="https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                                    alt=""
-                                    class="h-auto w-40 rounded-t-md"
-                                />
+                    <!-- flex -->
+                    <div class="flex flex-wrap gap-8 py-3 justify-center">
+                        <!-- flex container content -->
+
+                        <!-- trending movies -->
+                        <ng-container *ngFor="let movie of PopularMovie">
+                            <div
+                                class="rounded-md w-36 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                            >
+                                <!-- flex content image -->
+                                <div class="">
+                                    <img
+                                        *ngIf="movie.poster_path"
+                                        src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}"
+                                        alt=""
+                                        class="w-36 rounded-t-md"
+                                    />
+                                    <div
+                                        *ngIf="!movie.poster_path"
+                                        class="bg-gradient-to-r from-purple-300 flex justify-center p-5"
+                                    >
+                                        <p>No image</p>
+                                    </div>
+                                </div>
+                                <!-- flex content text -->
+                                <div class="p-3 grid-tooltip">
+                                    <div
+                                        *ngIf="movie.title && movie.title.length > 17; else elseBlock"
+                                        class="text-xs font-bold p-0 m-0"
+                                        matTooltip="{{ movie.title }}"
+                                    >
+                                        {{ (movie.title | slice: 0:17) + '..' }}
+                                    </div>
+                                    <ng-template #elseBlock
+                                        ><div class="text-xs font-bold p-0 m-0">{{ movie.title }}</div></ng-template
+                                    >
+                                    <div class="text-xs p-0 m-0">
+                                        {{ movie.release_date | date: 'longDate' }}
+                                    </div>
+                                </div>
                             </div>
-                            <!-- grid content text -->
-                            <div class="flex flex-col py-1">
-                                <div class="text-xs p-0 m-0 place-self-center">Movie Title</div>
-                                <div class="text-xs p-0 m-0 place-self-center">20th October 2022</div>
-                            </div>
-                        </div>
-                        <div>content</div>
-                        <div>content</div>
-                        <div>content</div>
+                        </ng-container>
                     </div>
                 </mat-tab>
+
                 <mat-tab label="Series">
-                    <!-- grid -->
-                    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 p-2">
-                        <!-- grid content -->
-                        <div
-                            class="rounded-md w-40 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
-                        >
-                            <!-- grid content image -->
-                            <div class="">
-                                <img
-                                    src="https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                                    alt=""
-                                    class="h-auto w-40 rounded-t-md"
-                                />
+                    <!-- flex -->
+                    <div class="flex flex-wrap gap-8 py-3 justify-center">
+                        <!-- flex container content -->
+
+                        <!-- trending series -->
+                        <ng-container *ngFor="let series of PopularSeries">
+                            <div
+                                class="rounded-md w-36 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                            >
+                                <!-- flex content image -->
+                                <div class="">
+                                    <img
+                                        *ngIf="series.poster_path"
+                                        src="https://image.tmdb.org/t/p/w300/{{ series.poster_path }}"
+                                        alt=""
+                                        class="w-36 rounded-t-md"
+                                    />
+                                    <div
+                                        *ngIf="!series.poster_path"
+                                        class="bg-gradient-to-r from-purple-300 flex justify-center p-5"
+                                    >
+                                        <p>No image</p>
+                                    </div>
+                                </div>
+                                <!-- flex content text -->
+                                <div class="p-3 grid-tooltip">
+                                    <div
+                                        *ngIf="series.name && series.name.length > 17; else elseBlock"
+                                        class="text-xs font-bold p-0 m-0"
+                                        matTooltip="{{ series.name }}"
+                                    >
+                                        {{ (series.name | slice: 0:17) + '..' }}
+                                    </div>
+                                    <ng-template #elseBlock
+                                        ><div class="text-xs font-bold p-0 m-0">{{ series.name }}</div></ng-template
+                                    >
+                                    <div class="text-xs p-0 m-0">
+                                        {{ series.first_air_date | date: 'longDate' }}
+                                    </div>
+                                </div>
                             </div>
-                            <!-- grid content text -->
-                            <div class="flex flex-col py-1">
-                                <div class="text-xs p-0 m-0 place-self-center">Movie Title</div>
-                                <div class="text-xs p-0 m-0 place-self-center">20th October 2022</div>
-                            </div>
-                        </div>
-                        <div>content</div>
-                        <div>content</div>
-                        <div>content</div>
+                        </ng-container>
                     </div>
                 </mat-tab>
             </mat-tab-group>
         </div>
+
+        <!-- This is the second mat-tab -->
+
         <div class="px-2 mt-3">
             <!-- tab-2 -->
             <div class="flex flex-row">
@@ -130,55 +175,94 @@
             <!-- label and content 2-->
             <mat-tab-group animationDuration="2000ms" mat-align-tabs="center">
                 <mat-tab label="Movies">
-                    <!-- grid -->
-                    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 p-2">
-                        <!-- grid content -->
-                        <div
-                            class="rounded-md w-40 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
-                        >
-                            <!-- grid content image -->
-                            <div class="">
-                                <img
-                                    src="https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                                    alt=""
-                                    class="h-auto w-40 rounded-t-md"
-                                />
+                    <!-- flex -->
+                    <div class="flex flex-wrap gap-8 py-3 justify-center">
+                        <!-- flex container content -->
+
+                        <!-- top rated movies -->
+                        <ng-container *ngFor="let movie of RatedMovie">
+                            <div
+                                class="rounded-md w-36 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                            >
+                                <!-- grid content image -->
+                                <div class="">
+                                    <img
+                                        *ngIf="movie.poster_path"
+                                        src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}"
+                                        alt=""
+                                        class="w-36 rounded-t-md"
+                                    />
+                                    <div
+                                        *ngIf="!movie.poster_path"
+                                        class="bg-gradient-to-r from-purple-300 flex justify-center p-5"
+                                    >
+                                        <p>No image</p>
+                                    </div>
+                                </div>
+                                <!-- grid content text -->
+                                <div class="p-3 grid-tooltip">
+                                    <div
+                                        *ngIf="movie.title && movie.title.length > 17; else elseBlock"
+                                        class="text-xs font-bold p-0 m-0"
+                                        matTooltip="{{ movie.title }}"
+                                    >
+                                        {{ (movie.title | slice: 0:17) + '..' }}
+                                    </div>
+                                    <ng-template #elseBlock
+                                        ><div class="text-xs font-bold p-0 m-0">{{ movie.title }}</div></ng-template
+                                    >
+                                    <div class="text-xs p-0 m-0">
+                                        {{ movie.release_date | date: 'longDate' }}
+                                    </div>
+                                </div>
                             </div>
-                            <!-- grid content text -->
-                            <div class="flex flex-col py-1">
-                                <div class="text-xs p-0 m-0 place-self-center">Movie Title</div>
-                                <div class="text-xs p-0 m-0 place-self-center">20th October 2022</div>
-                            </div>
-                        </div>
-                        <div>content</div>
-                        <div>content</div>
-                        <div>content</div>
+                        </ng-container>
                     </div>
                 </mat-tab>
+
                 <mat-tab label="Series">
-                    <!-- grid -->
-                    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 p-2">
-                        <!-- grid content -->
-                        <div
-                            class="rounded-md w-40 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
-                        >
-                            <!-- grid content image -->
-                            <div class="">
-                                <img
-                                    src="https://images.pexels.com/photos/12328375/pexels-photo-12328375.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                                    alt=""
-                                    class="h-auto w-40 rounded-t-md"
-                                />
+                    <!-- flex -->
+                    <div class="flex flex-wrap gap-8 py-3 justify-center">
+                        <!-- flex container content -->
+
+                        <!-- trending series -->
+                        <ng-container *ngFor="let series of RatedSeries">
+                            <div
+                                class="rounded-md w-36 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                            >
+                                <!-- flex content image -->
+                                <div class="">
+                                    <img
+                                        *ngIf="series.poster_path"
+                                        src="https://image.tmdb.org/t/p/w300/{{ series.poster_path }}"
+                                        alt=""
+                                        class="w-36 rounded-t-md"
+                                    />
+                                    <div
+                                        *ngIf="!series.poster_path"
+                                        class="bg-gradient-to-r from-purple-300 flex justify-center p-5"
+                                    >
+                                        <p>No image</p>
+                                    </div>
+                                </div>
+                                <!-- flex content text -->
+                                <div class="p-3 grid-tooltip">
+                                    <div
+                                        *ngIf="series.name && series.name.length > 17; else elseBlock"
+                                        class="text-xs font-bold p-0 m-0"
+                                        matTooltip="{{ series.name }}"
+                                    >
+                                        {{ (series.name | slice: 0:17) + '..' }}
+                                    </div>
+                                    <ng-template #elseBlock
+                                        ><div class="text-xs font-bold p-0 m-0">{{ series.name }}</div></ng-template
+                                    >
+                                    <div class="text-xs p-0 m-0">
+                                        {{ series.first_air_date | date: 'longDate' }}
+                                    </div>
+                                </div>
                             </div>
-                            <!-- grid content text -->
-                            <div class="flex flex-col py-1">
-                                <div class="text-xs p-0 m-0 place-self-center">Movie Title</div>
-                                <div class="text-xs p-0 m-0 place-self-center">20th October 2022</div>
-                            </div>
-                        </div>
-                        <div>content</div>
-                        <div>content</div>
-                        <div>content</div>
+                        </ng-container>
                     </div>
                 </mat-tab>
             </mat-tab-group>
