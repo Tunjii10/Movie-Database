@@ -41,7 +41,7 @@ export class HttpService {
             params: params,
         });
     }
-    getDetail(videoType: string, id: number): Observable<MovieDetail | SeriesDetail> {
+    getDetail(videoType: string, id: number): Observable<any> {
         let params = new HttpParams().set('api_key', `${env.API_KEY}`).set('language', 'en-US');
         if (videoType === 'movie') {
             return this.http.get<MovieDetail>(`${env.API_URL}/movie/${id}`, {
