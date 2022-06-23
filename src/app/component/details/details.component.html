@@ -3,6 +3,7 @@
     <div class="p-5 grid grid-cols-1 grid-rows-2 sm:grid-cols-3 gap-5 sm:gap-8 sm:grid-rows-1">
         <!-- grid item -->
         <div class="" *ngIf="detailMovie.backdrop_path; else elseblock1">
+            <!-- poster -->
             <img
                 class="detailImage rounded-lg"
                 src="https://image.tmdb.org/t/p/w500//{{ detailMovie.poster_path }}"
@@ -17,16 +18,27 @@
         <!-- grid item  and flex container-->
         <div class="flex flex-col gap-2 flex-wrap sm:col-span-2">
             <!-- flex  items-->
+            <!-- title -->
             <div class="font-bold text-xl">{{ detailMovie.title }}</div>
             <div class="flex flex-row flex-wrap text-sm gap-2">
-                <div class="rounded border border- border-purple-500 py-1 px-2">{{ detailMovie.vote_average }}</div>
-                <div class="py-1 px-2 border-l border-purple-500">{{ detailMovie.release_date }}</div>
+                <!-- rating -->
+                <div class="rounded border border- border-purple-500 py-1 px-2" matTooltip="Rating">
+                    {{ detailMovie.vote_average }}
+                </div>
+                <!-- release date -->
+                <div class="py-1 px-2 border-l border-purple-500" matTooltip="First Aired">
+                    {{ detailMovie.release_date }}
+                </div>
+                <!-- genre -->
                 <div class="py-1 px-2 border-l border-purple-500" *ngIf="detailMovie.genres">
                     {{ detailMovie.genres[0].name }}
                 </div>
+                <!-- runtime -->
                 <div class="py-1 px-2 border-l border-purple-500">{{ detailMovie.runtime }}min</div>
             </div>
+            <!-- taagline -->
             <div class="p-0 m-0 font-medium">{{ detailMovie.tagline }}</div>
+            <!-- overview -->
             <div class="font-bold text-xl pt-1 m-0">Overview</div>
             <div class="p-0 m-0">
                 <div class="">
@@ -34,15 +46,19 @@
                 </div>
             </div>
             <div class="flex flex-row flex-wrap gap-8 pt-2">
+                <!-- production company -->
                 <div class="flex flex-col">
                     <div class="p-0 m-0" *ngIf="detailMovie.production_companies">
                         {{ detailMovie.production_companies[0].name }}
                     </div>
                     <p class="font-medium">Production</p>
                 </div>
-                <div class="flex flex-col">
-                    <div class="p-0 m-0" *ngIf="detailMovie.spoken_languages">
-                        {{ detailMovie.spoken_languages[0].name }}
+                <!-- languages -->
+                <div class="flex flex-col" *ngIf="detailMovie.spoken_languages">
+                    <div class="p-0 m-0 flex flex-row flex-wrap">
+                        <div *ngFor="let value of detailMovie.spoken_languages">
+                            <div class="pr-1">{{ value.name }}</div>
+                        </div>
                     </div>
                     <p class="font-medium">Language</p>
                 </div>
@@ -55,11 +71,18 @@
     <div *ngIf="detailSeries">
         <div class="p-5 grid grid-cols-1 grid-rows-2 sm:grid-cols-3 gap-5 sm:gap-8 sm:grid-rows-1">
             <!-- grid item -->
-            <div class="" *ngIf="detailSeries.seasons; else elseblock2">
+            <div
+                class=""
+                *ngIf="
+                    detailSeries.seasons && detailSeries.seasons.length > 0 && detailSeries.seasons[0].poster_path;
+                    else elseblock2
+                "
+            >
+                <!-- poster -->
                 <img
                     class="detailImage rounded-lg"
                     src="https://image.tmdb.org/t/p/w500//{{ detailSeries.seasons[0].poster_path }}"
-                    alt=""
+                    alt="Image"
                 />
             </div>
             <ng-template #elseblock2>
@@ -71,37 +94,64 @@
             <!-- grid item  and flex container-->
             <div class="flex flex-col gap-2 flex-wrap sm:col-span-2">
                 <!-- flex  items-->
+                <!-- title -->
                 <div class="font-bold text-xl">{{ detailSeries.name }}</div>
                 <div class="flex flex-row flex-wrap text-sm gap-2">
-                    <div class="rounded border border- border-purple-500 py-1 px-2">
+                    <!-- rating -->
+                    <div class="rounded border border- border-purple-500 py-1 px-2" matTooltip="Rating">
                         {{ detailSeries.vote_average }}
                     </div>
-                    <div class="py-1 px-2 border-l border-purple-500">{{ detailSeries.first_air_date }}</div>
+                    <!-- release date -->
+                    <div class="py-1 px-2 border-l border-purple-500" matTooltip="First Aired">
+                        {{ detailSeries.first_air_date }}
+                    </div>
+                    <!-- genre -->
                     <div class="py-1 px-2 border-l border-purple-500" *ngIf="detailSeries.genres">
                         {{ detailSeries.genres[0].name }}
                     </div>
+                    <!-- runtime -->
                     <div class="py-1 px-2 border-l border-purple-500">{{ detailSeries.episode_run_time }}mins</div>
                 </div>
+                <!-- tagline -->
                 <div class="p-0 m-0 font-semibold">{{ detailSeries.tagline }}</div>
-                <div class="flex-row flex flex-wrap">
+                <!-- no of seasons -->
+                <div *ngIf="detailSeries.seasons && detailSeries.seasons.length > 0" class="flex-row col flex-wrap">
+                    <div class="p-0 m-0 font-medium">No. of Seasons - {{ detailSeries.seasons.length }}</div>
+                </div>
+                <!-- creators -->
+                <div
+                    *ngIf="detailSeries.created_by && detailSeries.created_by.length > 0"
+                    class="flex-row flex flex-wrap"
+                >
                     <div class="p-0 m-0 font-medium">Created By -</div>
                     <div class="p-0 m-0" *ngFor="let value of detailSeries.created_by">
                         <div>{{ value.name }}<span> </span></div>
                     </div>
                 </div>
                 <div class="flex flex-row flex-wrap gap-4 pt-2">
-                    <div class="flex flex-col">
-                        <div class="p-0 m-0" *ngIf="detailSeries.production_companies">
+                    <!-- production company -->
+                    <div
+                        class="flex flex-col"
+                        *ngIf="detailSeries.production_companies && detailSeries.production_companies.length > 0"
+                    >
+                        <div class="p-0 m-0">
                             {{ detailSeries.production_companies[0].name }}
                         </div>
                         <p class="font-medium">Production</p>
                     </div>
-                    <div class="flex flex-col">
-                        <div class="p-0 m-0" *ngIf="detailSeries.spoken_languages">
-                            {{ detailSeries.spoken_languages[0].name }}
+                    <!-- languages -->
+                    <div
+                        class="flex flex-col"
+                        *ngIf="detailSeries.spoken_languages && detailSeries.spoken_languages.length > 0"
+                    >
+                        <div class="p-0 m-0 flex flex-row flex-wrap">
+                            <div *ngFor="let value of detailSeries.spoken_languages">
+                                <div class="pr-1">{{ value.name }}</div>
+                            </div>
                         </div>
                         <p class="font-medium">Language</p>
                     </div>
+                    <!-- last aired -->
                     <div class="flex flex-col">
                         <div class="p-0 m-0">{{ detailSeries.last_air_date }}</div>
                         <p class="font-medium">Last Aired</p>
@@ -111,6 +161,7 @@
         </div>
     </div>
 </ng-template>
+<!-- no data display -->
 <ng-template *ngIf="!detailMovie && !detailSeries">
-    <div class="m-5">Movie Details not available</div>
+    <div class="m-5">Details not available</div>
 </ng-template>
