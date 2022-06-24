@@ -14,9 +14,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { HomeComponent } from './component/home/home.component';
 import { DetailsComponent } from './component/details/details.component';
+import { SearchComponent } from './component/search/search.component';
+import { ListviewComponent } from './component/listview/listview.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
-    declarations: [AppComponent, NavBarComponent, HomeComponent, DetailsComponent],
+    declarations: [
+        AppComponent,
+        NavBarComponent,
+        HomeComponent,
+        DetailsComponent,
+        SearchComponent,
+        ListviewComponent,
+        FooterComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
