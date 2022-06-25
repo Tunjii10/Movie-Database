@@ -11,7 +11,7 @@ export interface Movie {
     popularity?: number;
     vote_count?: number;
     video?: number;
-    vote_avarage?: number;
+    vote_average?: number;
 }
 
 export interface Series {
@@ -19,7 +19,7 @@ export interface Series {
     popularity?: number;
     id?: number;
     backdrop_path?: string | null;
-    vote_avarage?: number;
+    vote_average?: number;
     overview?: string;
     first_air_date?: string;
     origin_country?: string[];

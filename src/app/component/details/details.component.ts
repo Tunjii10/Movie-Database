@@ -13,14 +13,14 @@ export class DetailsComponent implements OnInit, OnDestroy {
     id: number = 0;
     gameType: string = '';
     detailSubscriber: Subscription | undefined;
-    detailWrapperSubscriber: Subscription | undefined;
+    detailRouteSubscriber: Subscription | undefined;
     detailMovie: MovieDetail | undefined;
     detailSeries: SeriesDetail | undefined;
 
     constructor(private ActivatedRoute: ActivatedRoute, private httpService: HttpService) {}
 
     ngOnInit(): void {
-        this.detailWrapperSubscriber = this.ActivatedRoute.params.subscribe((params: Params) => {
+        this.detailRouteSubscriber = this.ActivatedRoute.params.subscribe((params: Params) => {
             this.id = params['id'];
             this.gameType = params['vidType'];
             this.loadDetail(this.gameType, this.id);
@@ -41,8 +41,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
         if (this.detailSubscriber) {
             this.detailSubscriber.unsubscribe();
         }
-        if (this.detailWrapperSubscriber) {
-            this.detailWrapperSubscriber.unsubscribe();
+        if (this.detailRouteSubscriber) {
+            this.detailRouteSubscriber.unsubscribe();
         }
     }
 }

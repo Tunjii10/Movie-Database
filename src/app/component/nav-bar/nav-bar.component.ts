@@ -23,9 +23,6 @@ export class NavBarComponent implements OnInit {
 
     searchFunction($event: KeyboardEvent, form: NgForm) {
         if ($event.key === 'Enter') {
-            console.log('yes');
-            console.log(form.value.search);
-            console.log(this.model.searchStr);
             this.router.navigate(['search', form.value.search]);
         }
     }

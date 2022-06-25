@@ -1,1 +1,91 @@
-<p>search works!</p>
+<div class="p-5 w-full">
+    <div class="w-full">
+        <div>
+            <div class="text-sm py-2 border-b border-purple-100">
+                Search Term: <i> {{ searchStr }}</i>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-wrap mt-5 w-full">
+        <div class="border border-purple-100 shadow shadow-purple-300 py-1 rounded-md w-full sm:h-1/5 sm:w-2/5 sm:px-5">
+            <div class="border-b border-purple-100 w-full">
+                <div class="font-medium text-md pt-2 px-1 pb-1">Search Results</div>
+            </div>
+            <div class="border-b border-purple-100 inline-flex gap-2 pt-2 w-full">
+                <p class="p-1 font-medium">Movies</p>
+                <p class="bg-purple-100 p-1 rounded" *ngIf="searchMovie">
+                    {{ searchMovie.length }}
+                </p>
+            </div>
+            <br />
+            <div class="inline-flex gap-2 pt-2 w-full">
+                <p class="p-1">Series</p>
+                <p class="bg-purple-100 p-1 rounded" *ngIf="searchSeries">
+                    {{ searchSeries.length }}
+                </p>
+            </div>
+        </div>
+        <div
+            *ngIf="(searchMovie && searchMovie.length > 0) || (searchSeries && searchSeries.length > 0); else elseblock"
+            class="mt-2 sm:mt-0 sm:pl-5 sm:w-3/5"
+        >
+            <div *ngIf="searchMovie && searchMovie.length > 0">
+                <p class="font-medium">Movies</p>
+                <ul>
+                    <ng-container *ngFor="let movie of searchMovie">
+                        <div
+                            class="flex flex-row border border-purple-100 rounded-lg mb-2"
+                            [routerLink]="['/details/movie/', movie.id]"
+                        >
+                            <div class="shrink-0">
+                                <img
+                                    class="w-24 h-28 rounded-l-lg"
+                                    src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}"
+                                    alt="image"
+                                />
+                            </div>
+                            <div class="flex flex-col flex-nowrap text-xs p-2">
+                                <div class="text-sm font-medium">
+                                    {{ movie.title }}
+                                </div>
+                                <div><i>Date:</i> {{ movie.release_date }}</div>
+                                <div><i>Rating:</i> {{ movie.vote_average }}</div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ul>
+            </div>
+            <div *ngIf="searchSeries && searchSeries.length > 0" class="pt-5">
+                <p class="font-medium">Series</p>
+                <ul>
+                    <ng-container *ngFor="let series of searchSeries">
+                        <div
+                            [routerLink]="['/details/series/', series.id]"
+                            class="flex flex-row border border-purple-100 rounded-lg mb-2"
+                        >
+                            <div class="shrink-0">
+                                <img
+                                    class="w-24 h-28 rounded-l-lg"
+                                    src="https://image.tmdb.org/t/p/w300/{{ series.poster_path }}"
+                                    alt="image"
+                                />
+                            </div>
+                            <div class="flex flex-col flex-nowrap text-xs p-2">
+                                <div class="text-sm font-medium">
+                                    {{ series.name }}
+                                </div>
+                                <div><i>First Release:</i> {{ series.first_air_date }}</div>
+                                <div><i>Rating:</i> {{ series.vote_average }}</div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ul>
+            </div>
+        </div>
+        <ng-template #elseblock>
+            <div *ngIf="searchMovie && searchSeries" class="pt-5 sm:pt-0 sm:pl-5">
+                Sorry your seach term doesn't match anything in our database
+            </div>
+        </ng-template>
+    </div>
+</div>
