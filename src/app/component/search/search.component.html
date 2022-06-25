@@ -37,13 +37,23 @@
                             class="flex flex-row border border-purple-100 rounded-lg mb-2"
                             [routerLink]="['/details/movie/', movie.id]"
                         >
-                            <div class="shrink-0">
+                            <div
+                                class="shrink-0"
+                                *ngIf="movie.poster_path && movie.poster_path !== ''; else elseblockimg"
+                            >
                                 <img
                                     class="w-24 h-28 rounded-l-lg"
                                     src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}"
                                     alt="image"
                                 />
                             </div>
+                            <ng-template #elseblockimg>
+                                <div class="shrink-0">
+                                    <div class="bg-gradient-to-r from-purple-300 w-24 h-28 rounded-l-lg pl-2 pt-2">
+                                        No Image
+                                    </div>
+                                </div>
+                            </ng-template>
                             <div class="flex flex-col flex-nowrap text-xs p-2">
                                 <div class="text-sm font-medium">
                                     {{ movie.title }}
@@ -63,13 +73,23 @@
                             [routerLink]="['/details/series/', series.id]"
                             class="flex flex-row border border-purple-100 rounded-lg mb-2"
                         >
-                            <div class="shrink-0">
+                            <div
+                                class="shrink-0"
+                                *ngIf="series.poster_path && series.poster_path !== ''; else elseblockimg"
+                            >
                                 <img
                                     class="w-24 h-28 rounded-l-lg"
                                     src="https://image.tmdb.org/t/p/w300/{{ series.poster_path }}"
                                     alt="image"
                                 />
                             </div>
+                            <ng-template #elseblockimg>
+                                <div class="shrink-0">
+                                    <div class="bg-gradient-to-r from-purple-300 w-24 h-28 rounded-l-lg pl-2 pt-2">
+                                        No Image
+                                    </div>
+                                </div>
+                            </ng-template>
                             <div class="flex flex-col flex-nowrap text-xs p-2">
                                 <div class="text-sm font-medium">
                                     {{ series.name }}

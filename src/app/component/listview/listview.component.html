@@ -1,1 +1,91 @@
-<p>listview works!</p>
+<div *ngIf="vidType === 'movies'; else elseBlock">
+    <div class="flex justify-center">
+        <p class="font-semibold pt-2 text-lg">Movies</p>
+    </div>
+    <div class="flex flex-wrap gap-8 pt-1 pb-3 justify-center">
+        <!-- flex container content -->
+
+        <!-- trending movies -->
+        <ng-container *ngFor="let movie of popularMovie">
+            <div
+                class="rounded-md w-36 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                [routerLink]="['/details/movie/', movie.id]"
+            >
+                <!-- flex content image -->
+                <div class="">
+                    <img
+                        *ngIf="movie.poster_path"
+                        src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}"
+                        alt=""
+                        class="w-36 rounded-t-md"
+                    />
+                    <div *ngIf="!movie.poster_path" class="bg-gradient-to-r from-purple-300 flex justify-center py-24">
+                        <p>No image</p>
+                    </div>
+                </div>
+                <!-- flex content text -->
+                <div class="p-3 grid-tooltip">
+                    <div
+                        *ngIf="movie.title && movie.title.length > 17; else elseBlock"
+                        class="text-xs font-bold p-0 m-0"
+                        matTooltip="{{ movie.title }}"
+                    >
+                        {{ (movie.title | slice: 0:17) + '..' }}
+                    </div>
+                    <ng-template #elseBlock
+                        ><div class="text-xs font-bold p-0 m-0">{{ movie.title }}</div></ng-template
+                    >
+                    <div class="text-xs p-0 m-0">
+                        {{ movie.release_date | date: 'longDate' }}
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<ng-template #elseBlock>
+    <div class="flex justify-center">
+        <p class="font-semibold pt-2 text-lg">Series</p>
+    </div>
+    <div class="flex flex-wrap gap-8 pt-1 pb-3 justify-center">
+        <!-- flex container content -->
+
+        <!-- trending series -->
+        <ng-container *ngFor="let series of popularSeries">
+            <div
+                class="rounded-md w-36 shadow-sm shadow-purple-300 hover:shadow-md hover:shadow-purple-500 hover:-translate-y-1 flex flex-wrap flex-col"
+                [routerLink]="['/details/series/', series.id]"
+            >
+                <!-- flex content image -->
+                <div class="">
+                    <img
+                        *ngIf="series.poster_path"
+                        src="https://image.tmdb.org/t/p/w300/{{ series.poster_path }}"
+                        alt=""
+                        class="w-36 rounded-t-md"
+                    />
+                    <div *ngIf="!series.poster_path" class="bg-gradient-to-r from-purple-300 flex justify-center py-24">
+                        <p>No image</p>
+                    </div>
+                </div>
+                <!-- flex content text -->
+                <div class="p-3 grid-tooltip">
+                    <div
+                        *ngIf="series.name && series.name.length > 17; else elseBlock"
+                        class="text-xs font-bold p-0 m-0"
+                        matTooltip="{{ series.name }}"
+                    >
+                        {{ (series.name | slice: 0:17) + '..' }}
+                    </div>
+                    <ng-template #elseBlock
+                        ><div class="text-xs font-bold p-0 m-0">{{ series.name }}</div></ng-template
+                    >
+                    <div class="text-xs p-0 m-0">
+                        {{ series.first_air_date | date: 'longDate' }}
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</ng-template>

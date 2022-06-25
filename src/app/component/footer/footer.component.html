@@ -1,6 +1,6 @@
 <div class="bg-purple-300 grid grid-rows-2 gap-2 justify-center">
     <div class="flex flex-row flex-wrap gap-4 px-2 items-end">
-        <div class="inline-flex items-end">
+        <a [routerLink]="['/']" class="inline-flex items-end">
             <div class="text-xl font-semibold leading-none">Movie-Database</div>
             <svg
                 class="p-0 m-0"
@@ -24,12 +24,12 @@
                     </svg>
                 </g>
             </svg>
-        </div>
+        </a>
 
         <div>
             <div class="text-md footer-link inline-flex gap-4">
-                <a href="#" class="hover:text-gray-400">Movies </a>
-                <a href="#" class="hover:text-gray-400"> Series</a>
+                <a [routerLink]="['/list/movies']" class="hover:text-gray-400">Movies </a>
+                <a [routerLink]="['/list/series']" class="hover:text-gray-400"> Series</a>
             </div>
         </div>
     </div>
