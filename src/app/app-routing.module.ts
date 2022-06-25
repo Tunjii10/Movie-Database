@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './component/details/details.component';
 import { HomeComponent } from './component/home/home.component';
+import { SearchComponent } from './component/search/search.component';
 
 const routes: Routes = [
     {
@@ -16,6 +17,10 @@ const routes: Routes = [
     {
         path: 'details/:vidType/:id',
         component: DetailsComponent,
+    },
+    {
+        path: 'search/:searchTerm',
+        component: SearchComponent,
     },
     {
         path: '**',

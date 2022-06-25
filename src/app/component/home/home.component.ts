@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     model = new HomeSearchInterface(' ');
 
     submit(form: NgForm) {
-        console.log(this.model.searchStr);
+        this.router.navigate(['search', form.value.search]);
     }
     movieList(path: string): void {
         this.moviesSub = this.httpService.getMovieList(path).subscribe((movieList: ApiResponse<Movie>) => {

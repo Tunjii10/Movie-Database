@@ -5,7 +5,7 @@
         <div class="" *ngIf="detailMovie.backdrop_path; else elseblock1">
             <!-- poster -->
             <img
-                class="detailImage rounded-lg"
+                class="detailImage rounded-lg shadow shadow-purple-300"
                 src="https://image.tmdb.org/t/p/w500//{{ detailMovie.poster_path }}"
                 alt="Movie Poster"
             />
@@ -80,7 +80,7 @@
             >
                 <!-- poster -->
                 <img
-                    class="detailImage rounded-lg"
+                    class="detailImage rounded-lg shadow shadow-purple-300"
                     src="https://image.tmdb.org/t/p/w500//{{ detailSeries.seasons[0].poster_path }}"
                     alt="Image"
                 />
