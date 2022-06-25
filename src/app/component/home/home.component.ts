@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.router.navigate(['search', form.value.search]);
     }
     movieList(path: string): void {
-        this.moviesSub = this.httpService.getMovieList(path).subscribe((movieList: ApiResponse<Movie>) => {
+        this.moviesSub = this.httpService.getMovieList(path, 1).subscribe((movieList: ApiResponse<Movie>) => {
             if (path === 'popular') {
                 this.PopularMovie = movieList.results;
             } else {
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
     }
     seriesList(path: string): void {
-        this.seriesSub = this.httpService.getSeriesList(path).subscribe((seriesList: ApiResponse<Series>) => {
+        this.seriesSub = this.httpService.getSeriesList(path, 1).subscribe((seriesList: ApiResponse<Series>) => {
             if (path === 'popular') {
                 this.PopularSeries = seriesList.results;
             } else {

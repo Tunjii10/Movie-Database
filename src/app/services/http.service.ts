@@ -9,14 +9,14 @@ import { ApiResponse, Movie, MovieDetail, Series, SeriesDetail } from '../model'
 export class HttpService {
     constructor(private http: HttpClient) {}
 
-    getMovieList(path: string): Observable<ApiResponse<Movie>> {
-        let params = new HttpParams().set('api_key', `${env.API_KEY}`).set('language', 'en-US').set('page', 1);
+    getMovieList(path: string, page: number): Observable<ApiResponse<Movie>> {
+        let params = new HttpParams().set('api_key', `${env.API_KEY}`).set('language', 'en-US').set('page', page);
         return this.http.get<ApiResponse<Movie>>(`${env.API_URL}/movie/${path}`, {
             params: params,
         });
     }
-    getSeriesList(path: string): Observable<ApiResponse<Series>> {
-        let params = new HttpParams().set('api_key', `${env.API_KEY}`).set('language', 'en-US').set('page', 1);
+    getSeriesList(path: string, page: number): Observable<ApiResponse<Series>> {
+        let params = new HttpParams().set('api_key', `${env.API_KEY}`).set('language', 'en-US').set('page', page);
         return this.http.get<ApiResponse<Series>>(`${env.API_URL}/tv/${path}`, {
             params: params,
         });
