@@ -27,7 +27,7 @@
         </div>
         <div
             *ngIf="(searchMovie && searchMovie.length > 0) || (searchSeries && searchSeries.length > 0); else elseblock"
-            class="mt-2 sm:mt-0 sm:pl-5 sm:w-3/5"
+            class="w-full mt-2 sm:mt-0 sm:pl-5 sm:w-3/5"
         >
             <div *ngIf="searchMovie && searchMovie.length > 0">
                 <p class="font-medium">Movies</p>
