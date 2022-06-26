@@ -8,7 +8,7 @@
         "local": "npm run config -- --environment=dev && ng serve",
         "build": "npm run config -- --environment=prod && ng build",
         "watch": "ng build --watch --configuration development",
-        "test": "ng npm run config -- --environment=prod && test",
+        "test": "npm run config -- --environment=prod && ng test",
         "heroku-postbuild": "npm run config -- --environment=prod && ng build",
         "prepare": "husky install",
         "format": "pretty-quick --staged"
